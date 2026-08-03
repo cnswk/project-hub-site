@@ -5,6 +5,15 @@ let kind = 'all';
 let term = '';
 const picked = new URLSearchParams(location.search).get('p');
 
+// 프로그램마다 다른 색 — 이름에서 뽑으므로 늘 같은 색이 나온다
+function iconColor(name) {
+  let sum = 0;
+  for (const ch of String(name || '')) sum = (sum * 31 + ch.codePointAt(0)) % 360;
+  return 'hsl(' + sum + ' 62% 48%)';
+}
+
+const ARROW = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v9"/><path d="M4 8l4 4 4-4"/><path d="M2.5 14h11"/></svg>';
+
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 }
@@ -39,12 +48,13 @@ function cardHtml(item) {
   const meta = [sizeText(item.size), T.updatedLabel + ' ' + day(item.updatedAt),
     T.downloadsLabel + ' ' + (item.downloads || 0)].join(' \u00b7 ');
   return '<article class="card" data-id="' + esc(item.id) + '">' +
-    '<div class="card-top"><div class="icon">' + letter + '</div>' +
+    '<div class="card-top"><div class="icon" style="background:' + iconColor(item.name) + '">' + letter + '</div>' +
     '<div class="title"><div class="name">' + esc(item.name) +
     '<span class="version">v' + esc(item.version) + '</span></div></div>' + badge + '</div>' +
+    '<div class="card-body">' +
     '<div class="note">' + esc(item.about || item.changelog) + '</div>' +
-    '<div class="meta">' + meta + '</div>' +
-    '<a class="btn-primary" href="' + esc(item.downloadUrl) + '" data-get="1">' + T.download + '</a>' +
+    '<div class="meta">' + meta + '</div></div>' +
+    '<a class="btn-primary" href="' + esc(item.downloadUrl) + '" data-get="1">' + ARROW + T.download + '</a>' +
     '</article>';
 }
 
@@ -65,7 +75,7 @@ function draw() {
     list.innerHTML = emptyHtml(T.noMatch, T.noMatchBody);
     return;
   }
-  list.className = 'grid';
+  list.className = shown.length === 1 ? 'grid one' : 'grid';
   list.innerHTML = shown.map(cardHtml).join('');
   for (const card of list.querySelectorAll('.card')) {
     card.addEventListener('click', (e) => {
