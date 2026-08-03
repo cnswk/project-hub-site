@@ -53,7 +53,7 @@ function cardHtml(item) {
   const meta = [sizeText(item.size), T.updatedLabel + ' ' + day(item.updatedAt),
     T.downloadsLabel + ' ' + (item.downloads || 0)].join(' \u00b7 ');
   return '<article class="card" data-id="' + esc(item.id) + '">' +
-    '<div class="icon" style="background:' + iconColor(item.name) + '">' + letter + '</div>' +
+    iconHtml(item, letter) +
     '<div class="card-body">' +
     '<div class="name">' + esc(item.name) +
     '<span class="version">v' + esc(item.version) + '</span>' + badge + '</div>' +
