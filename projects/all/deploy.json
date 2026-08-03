@@ -10,6 +10,6 @@
     "size": 115664780,
     "sha256": "6116bd57c056094abc13d6979007395ff5e856db8371039c96cd571d0a454e30"
   },
-  "changelog": "지침서 갱신 — 2차 후속(꼬리 소급·critical.log·손님 체감·storetest 격리)(2026-08-01) · storetest 격리 루트 — 통지 게이트 임시 상승 제거(2026-08-01) · 저장 실패 통지 후속 3종 — 손님 체감·디듑 꼬리 소급·장기 보존 로그(2026-08-01) · AtomicFile을 엔진 편집 정당화 감시에 등재 + 지침서 반영(2026-08-01) · 라이선스 잠금 실패 로그 — fail-open 무기록 해소 + 실행 검증(2026-08-01) · 활성화 기록 손상 사유 — 런타임 시험 5종 + 최악 경로(본·백업 동시 실패) 로그 신설(2026-08-01) · 교체 재시도 규약 직접 시험 — 주입(정본)+실기(배선 보조)(2026-08-01) · 교체 블록 공용화 — .imgpack이 수리 전 결함 3종을 손 복제한 채 살아 있었다(2026-08-01) | 환경 대기 미검증: latency.direct(PEER_UNAVAILABLE) · latency.relay(PEER_UNAVAILABLE) · stuckinput.stuck3emu(EMULATOR_INSTANCES_INSUFFICIENT) · stuckinput.viewer3crash(PEER_UNAVAILABLE) · stuckinput.stuck3iso(SENDINPUT_NEEDS_INPUT_DESKTOP) · stuckinput.useryield(NO_PHYSICAL_INPUT_IN_ISOLATED_DESKTOP) · deploy.rollback_drill(APP_REQUIRES_UAC_INTERACTIVE)",
+  "changelog": "성능 개선 및 오류 수정",
   "history": []
 }
