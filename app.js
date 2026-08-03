@@ -48,10 +48,10 @@ function cardHtml(item) {
   const meta = [sizeText(item.size), T.updatedLabel + ' ' + day(item.updatedAt),
     T.downloadsLabel + ' ' + (item.downloads || 0)].join(' \u00b7 ');
   return '<article class="card" data-id="' + esc(item.id) + '">' +
-    '<div class="card-top"><div class="icon" style="background:' + iconColor(item.name) + '">' + letter + '</div>' +
-    '<div class="title"><div class="name">' + esc(item.name) +
-    '<span class="version">v' + esc(item.version) + '</span></div></div>' + badge + '</div>' +
+    '<div class="icon" style="background:' + iconColor(item.name) + '">' + letter + '</div>' +
     '<div class="card-body">' +
+    '<div class="name">' + esc(item.name) +
+    '<span class="version">v' + esc(item.version) + '</span>' + badge + '</div>' +
     '<div class="note">' + esc(item.about || item.changelog) + '</div>' +
     '<div class="meta">' + meta + '</div></div>' +
     '<a class="btn-primary" href="' + esc(item.downloadUrl) + '" data-get="1">' + ARROW + T.download + '</a>' +
