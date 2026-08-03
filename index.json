@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-08-03T12:20:27.022Z",
+  "generatedAt": "2026-08-03T12:20:34.781Z",
   "owner": "cnswk",
   "projects": [
     {
@@ -13,7 +13,7 @@
       "updatedAt": "2026-08-01T13:40:08Z",
       "kind": "program",
       "size": 115664780,
-      "about": "화면을 보고 알아서 클릭해 주는 매크로 프로그램입니다. 여러 창을 한꺼번에 조종할 수 있고, 다른 컴퓨터를 원격으로 제어하는 기능도 들어 있습니다.",
+      "about": "ImageAll 배포/업데이트 저장소.",
       "downloads": 11,
       "features": [],
       "iconUrl": "",
