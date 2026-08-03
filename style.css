@@ -118,7 +118,14 @@ h1 { font-size: 44px; font-weight: 800; letter-spacing: -1px; line-height: 1.2; 
   border: 1px solid var(--c-primary); border-radius: var(--radius);
   padding: 0 var(--sp-2); line-height: 1.6;
 }
-.note { color: var(--c-text); word-break: break-word; }
+.note {
+  color: var(--c-text); word-break: break-word;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+img.icon { object-fit: cover; background: var(--c-bg); }
+.shot { width: 100%; border-radius: var(--radius); margin-bottom: var(--sp-4); }
+.features { margin-top: var(--sp-2); padding-left: var(--sp-5); }
+.features li { font-size: var(--fs-s); }
 .meta { font-size: var(--fs-s); color: var(--c-text-dim); }
 .btn-primary {
   background: var(--c-primary); color: var(--c-surface); border: none;

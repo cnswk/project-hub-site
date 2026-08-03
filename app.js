@@ -42,6 +42,11 @@ function matches(item) {
 }
 
 
+function iconHtml(item, letter) {
+  if (item.iconUrl) return '<img class="icon" src="' + esc(item.iconUrl) + '" alt="" />';
+  return '<div class="icon" style="background:' + iconColor(item.name) + '">' + letter + '</div>';
+}
+
 function cardHtml(item) {
   const letter = esc(String(item.name || '?').trim().charAt(0).toUpperCase());
   const badge = isNew(item.updatedAt) ? '<span class="badge">' + T.isNew + '</span>' : '';
@@ -115,10 +120,17 @@ function olderHtml(history) {
   return rows.length ? '<h3>' + T.detailOlder + '</h3><ul class="older">' + rows.join('') + '</ul>' : '';
 }
 
+function featuresHtml(list) {
+  const rows = (list || []).map((f) => '<li>' + esc(f) + '</li>');
+  return rows.length ? '<h3>' + T.detailFeatures + '</h3><ul class="features">' + rows.join('') + '</ul>' : '';
+}
+
 function detailHtml(item, deploy) {
   const needs = T.needs[item.kind || 'unknown'] || T.needs.unknown;
   return '<h2>' + esc(item.name) + ' <span class="version">v' + esc(item.version) + '</span></h2>' +
+    (item.image ? '<img class="shot" src="' + esc(item.image) + '" alt="" />' : '') +
     '<h3>' + T.detailAbout + '</h3><p>' + esc(item.about || item.changelog) + '</p>' +
+    featuresHtml(item.features) +
     '<h3>' + T.detailChanged + '</h3><p>' + esc(item.changelog) + '</p>' +
     '<h3>' + T.detailNeeds + '</h3><p>' + needs + '</p>' +
     olderHtml(deploy && deploy.history) +
